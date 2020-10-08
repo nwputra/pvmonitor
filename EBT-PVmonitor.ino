@@ -58,7 +58,6 @@ void timerCallback()
   if ( ++sec == 60 )
   {
     sec = 0;
-    UpdateLocalTime();
   }
 
   state = sec % 5;
