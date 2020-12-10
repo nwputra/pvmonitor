@@ -52,8 +52,10 @@ float readChannel(ADS1115_MUX channel)
 
 void timerCallback()
 {
-  unsigned char state;
+  unsigned char state, sec;
   char buff[6];
+  int rssi;
+  
 
   if ( ++sec == 60 )
   {
@@ -65,7 +67,7 @@ void timerCallback()
   switch ( state )
   {
     case 0 : // WiFi
-      int rssi = WiFi.RSSI();
+      rssi = WiFi.RSSI();
       Serial.print("Signal      = ");
       Serial.println( rssi );
       Serial.println("");
